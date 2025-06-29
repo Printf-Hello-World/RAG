@@ -1,0 +1,53 @@
+ICHIRAN Ramen [source]
+
+Filled fridge [source]
+
+Annotation A close-up photo of a meal at ICHI-
+
+RAN. The chashu ramen bowl with
+
+a spoon is placed in the center. The
+
+ramen is seasoned with chili sauce,
+
+chopped scallions, and served with
+
+two pieces of chashu. Chopsticks are
+
+placed to the right of the bowl, still in
+
+their paper wrap, not yet opened. The
+
+ramen is also served with nori on the
+
+left. On top, from left to right, the fol-
+
+lowing sides are served: a bowl of or-
+
+ange spice (possibly garlic sauce), a
+
+plate of smoke-flavored stewed pork
+
+with chopped scallions, and a cup of
+
+— _
+
+_
+
+__ _
+
+_
+
+An open refrigerator filled with a variety of food items. In the left part of the compartment, towards the front, there is a plastic box of strawberries with a small bag of baby carrots on top. Towards the back, there is a stack of sauce containers. In the middle part of the compartment, towards the front, there is a green plastic box, and there is an unidentified plastic bag placed on it. Towards the back, there is a carton of milk. In the right part of the compartment, towards the front, there is a box of blueberries with three yogurts stacked on top. The large bottle of yogurt is Fage non-fat yogurt, and one of the smaller cups is Fage blueberry yogurt. The brand and flavor of the other smaller cup are unknown. Towards the back, there is a container with an unknown content.
+
+matcha green tea.
+
+Question 1 What’s the name of the restaurant?
+
+What is the brand of the blueberry-flavored yogurt?
+
+Question 2 Describe this photo in detail.
+
+Is there strawberry-flavored yogurt in the fridge?
+
+Table 6: Challenging examples from LLaVA-Bench (In-the-Wild), we provide extremely-detailed annotation for each image for an accurate evaluation. Some questions require the model to extract details from high resolution image and to have a broad knowledge coverage.

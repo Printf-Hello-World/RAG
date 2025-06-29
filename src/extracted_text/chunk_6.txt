@@ -1,0 +1,25 @@
+Xt
+
+This leads to the unified format for the multimodal instruction-following sequence illustrated in Table 2. We perform instruction-tuning of the LLM on the prediction tokens, using its original auto-regressive training objective.
+
+Specifically, for a sequence of length L, we compute the probability of the target answers Xa by:
+
+L p(XalXv, Xinstruct) = [] po(wi|Xv, Xinstruct,<is Xa,<i); (3) i=1
+
+4
+
+(1)
+
+Xsystem-message <STOP> Human : X1 Human : X2 instruct <STOP> Assistant: X1 instruct <STOP> Assistant: X2 a <STOP> a <STOP> ···
+
+Table 2: The input sequence used to train the model. Only two conversation turns are illustrated here; in practice, the number of turns varies based on the instruction-following data. In our current implementation, we follow Vicuna-v0 [9] to set the system message Xsystem-message and we set <STOP> = ###. The model is trained to predict the assistant answers and where to stop, and thus only green sequence/tokens are used to compute the loss in the auto-regressive model.
+
+where θ is the trainable parameters, Xinstruct,<i and Xa,<i are the instruction and answer tokens in all turns before the current prediction token xi, respectively. Please see Table 2 for an illustration of the prediction tokens. For the conditionals in (3), we explicitly add Xv to emphasize the fact that the image is grounded for all answers, and we omit Xsystem-message and all previous <STOP> for better readability. For LLaVA model training, we consider a two-stage instruction-tuning procedure.
+
+Stage 1: Pre-training for Feature Alignment. To strike a balance between concept coverage and training efficiency, we filter CC3M to 595K image-text pairs. Please see Appendix for details of the filtering process. These pairs are converted to the instruction-following data using the naive expansion method describe in Section 3. Each sample can be treated as a single-turn conversation. To construct the input Xinstruct in (2), for an image Xv, a question Xq is randomly sampled, which is a language instruction to request the assistant to describe the image briefly. The ground-truth prediction answer Xa is the original caption. In training, we keep both the visual encoder and LLM weights frozen, and maximize the likelihood of (3) with trainable parameters θ = W (the projection matrix) only. In this way, the image features Hv can be aligned with the pre-trained LLM word embedding. This stage can be understood as training a compatible visual tokenizer for the frozen LLM.
+
+Stage 2: Fine-tuning End-to-End. We always keep the visual encoder weights frozen, and continue to update both the pre-trained weights of the projection layer and LLM in LLaVA; i.e., the trainable parameters are θ = {W,ϕ} in (3). We consider two specific use case scenarios:
+
+• Multimodal Chatbot. We develop a Chatbot by fine-tuning on the 158K language-image instruction-following data in Section 3. Among the three types of responses, conversation is multi-turn while the other two are single-turn. They are uniformly sampled in training.
+
+• Science QA. We study our method on the ScienceQA benchmark [34], the first large-scale multimodal science question dataset that annotates the answers with detailed lectures and explanations. Each question is provided a context in the form of natural language or an image. The assistant provides the reasoning process in natural language and selects the answer among multiple choices. For training in (2), we organize the data as a single turn conversation, the question & context as Xinstruct, and reasoning & answer as Xa.

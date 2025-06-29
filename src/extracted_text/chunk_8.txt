@@ -1,0 +1,31 @@
+User
+
+What is unusual about this image?
+
+BLIP-2
+
+a man is sitting on the back of a yellow cab
+
+User
+
+What is unusual about this image?
+
+OpenFlamingo The man is drying his clothes on the hood of his car.
+
+Table 3: Example prompt from GPT-4 paper [36] to compare visual reasoning and chat capabilities. Compared to BLIP-2 [28] and OpenFlamingo [5], LLaVA accurately follows the user’s instructions, instead of simply describing the scene. LLaVA offers a more comprehensive response than GPT-4. Even when merely asked to describe the image, LLaVA identifies atypical aspects of the image.
+
+Surprisingly, although LLaVA is trained with a small multimodal instruction-following dataset (∼80K unique images), it demonstrates quite similar reasoning results with multimodal GPT-4 on these examples. Note that while these images are out-of-domain for LLaVA, LLaVA is still able to understand the scenes and follow the question instruction to provide a reasonable response. In contrast, BLIP-2 and OpenFlamingo focus on describing the image, instead of following the user instruction to answer in an appropriate manner.
+
+Quantitative Evaluation. To gain a systematic understanding of the performance of LLaVA, we propose a quantitative metric to measure the model’s instruction-following capability on multimodal data. Inspired by [9], we leverage GPT-4 to measure the quality of generated responses. Specifically, we create triplets consisting of image, ground-truth textual descriptions, and question. The candidate models (e.g., LLaVA) predict the answers based on the question and the image. To provide an approximate theoretical upper bound, we create a reference prediction based on the question and the ground-truth textual descriptions, using the text-only GPT-4. After obtaining the responses from both models, we feed the question, visual information (in the format of textual descriptions), and the generated responses from both assistants, to the judge (i.e., text-only GPT-4). It evaluates the helpfulness, relevance, accuracy, and level of detail of the responses from the assistants, and gives an overall score on a scale of 1 to 10, where a higher score indicates better overall performance. It is also asked to provide a comprehensive explanation for the evaluation, for us to better understand the
+
+6
+
+Conversation Detail description Complex reasoning All Full data 83.1 75.3 96.5 85.1 Detail + Complex 81.5 (-1.6) 73.3 (-2.0) 90.8 (-5.7) 81.9 (-3.2) Conv + 5% Detail + 10% Complex 81.0 (-2.1) 68.4 (-7.1) 91.5 (-5.0) 80.5 (-4.4) Conversation 76.5 (-6.6) 59.8 (-16.2) 84.9 (-12.4) 73.8 (-11.3) No Instruction Tuning 22.0 (-61.1) 24.0 (-51.3) 18.5 (-78.0) 21.5 (-63.6)
+
+Table 4: Ablation on LLaVA-Bench (COCO) with different training data. We report relative scores w.r.t. a text-only GPT-4 model that uses ground truth image captions and bounding boxes as visual input. We prompt GPT-4 with the answers from our model outputs and the answers by GPT-4 (text-only), and let it compare between both responses and give a rating with an explanation.
+
+Conversation Detail description Complex reasoning All OpenFlamingo [5] 19.3 ± 0.5 19.0 ± 0.5 19.1 ± 0.7 19.1 ± 0.4 BLIP-2 [28] 54.6 ± 1.4 29.1 ± 1.2 32.9 ± 0.7 38.1 ± 1.0 LLaVA 57.3 ± 1.9 52.5 ± 6.3 81.7 ± 1.8 67.3 ± 2.0 LLaVA† 58.8 ± 0.6 49.2 ± 0.8 81.4 ± 0.3 66.7 ± 0.3
+
+Table 5: Instruction-following capability comparison using relative scores on LLaVA-Bench (In-the- Wild). The results are reported in the format of mean ± std. For the first three rows, we report three inference runs. LLaVA performs significantly better than others. † For a given set of LLaVA decoding sequences, we evaluate by querying GPT-4 three times; GPT-4 gives a consistent evaluation.
+
+models. We report relative scores w.r.t. the text-only GPT-4 model that uses the textural ground truth description as visual input. We create two benchmarks to evaluate the model’s performance.

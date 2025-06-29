@@ -1,0 +1,31 @@
+3
+
+2023
+
+2
+
+0
+
+2
+
+c e D 1 1 ] V C . s c [ 2 v 5 8 4 8 0 . 4 0 3 2 :
+
+v
+
+i
+
+X
+
+r
+
+a
+
+Visual Instruction Tuning
+
+Haotian Liu1∗, Chunyuan Li2∗, Qingyang Wu3, Yong Jae Lee1
+
+1University of Wisconsin–Madison 2Microsoft Research 3Columbia University https://llava-vl.github.io
+
+Abstract
+
+Instruction tuning large language models (LLMs) using machine-generated instruction-following data has been shown to improve zero-shot capabilities on new tasks, but the idea is less explored in the multimodal field. We present the first attempt to use language-only GPT-4 to generate multimodal language-image instruction-following data. By instruction tuning on such generated data, we in- troduce LLaVA: Large Language and Vision Assistant, an end-to-end trained large multimodal model that connects a vision encoder and an LLM for general- purpose visual and language understanding. To facilitate future research on visual instruction following, we construct two evaluation benchmarks with diverse and challenging application-oriented tasks. Our experiments show that LLaVA demon- strates impressive multimodal chat abilities, sometimes exhibiting the behaviors of multimodal GPT-4 on unseen images/instructions, and yields a 85.1% rela- tive score compared with GPT-4 on a synthetic multimodal instruction-following dataset. When fine-tuned on Science QA, the synergy of LLaVA and GPT-4 achieves a new state-of-the-art accuracy of 92.53%. We make GPT-4 generated visual instruction tuning data, our model, and code publicly available.

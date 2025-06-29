@@ -1,0 +1,20 @@
+# this is the temp folder that stores all the images that was scrapped from uploaded documents
+img_path: "pdf_extracted_imgs"
+
+# this is the temp folder that stores all the text that was scrapped from uploaded documents
+text_path: "extracted_text"
+
+# this is the collection name for chromadb
+collection_name: "my_collection"
+
+# this is the directory for the vector store
+db_directory: "vector_store"
+
+# this is a 
+uploaded_dir: "uploaded_docs"
+
+# this is the corpus directory, stores all data after processing them
+corpus_dir: "../corpus"
+
+# vision enabled model, this is used to process and generate descriptions of images for the vector store
+model_name: "gpt-4o-mini"

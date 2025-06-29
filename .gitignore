@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+venv/
+.env/
+.venv/
+env/
+ENV/
+flaskenv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# macOS & system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Cache
+*.cache
+.cache/
+*.pkl
+*.joblib
+
+# LangChain cache and related outputs
+lc-*
+*.jsonl
+
+src/vector_store/
+
+
+# Ignore test outputs or temp data
+tmp/
+temp/
+output/
+outputs/
+logs/
+__results__/
+
+# Ignore Hugging Face model cache
+~/.cache/huggingface/

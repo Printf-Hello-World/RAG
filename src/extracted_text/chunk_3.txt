@@ -1,0 +1,15 @@
+3 GPT-assisted Visual Instruction Data Generation
+
+The community has witnessed a surge in the amount of public multimodal data such as image-text pairs, ranging from CC [8] to LAION [45]. However, when it comes to multimodal instruction-
+
+2
+
+Context type 1: Captions
+
+A group of people standing outside of a black vehicle with various luggage. Luggage surrounds a vehicle in an underground parking area People try to fit all of their luggage in an SUV. The sport utility vehicle is parked in the public garage, being packed for a trip Some people with luggage near a van that is transporting it. Context type 2: Boxes person: [0.681, 0.242, 0.774, 0.694], backpack: [0.384, 0.696, 0.485, 0.914], suitcase: ...<omitted>
+
+Response type 1: conversation
+
+Question: What type of vehicle is featured in the image? Answer: The image features a black sport utility vehicle (SUV) ...<omitted> Response type 2: detailed description
+
+The image is an underground parking area with a black sport utility vehicle (SUV) parked. There are three people in the scene, with one person standing closer to the left side of the vehicle, another person in the middle, and the third person on the right side. They are all working together to pack their luggage into the SUV for a trip. ...<omitted>
